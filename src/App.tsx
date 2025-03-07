@@ -11,7 +11,7 @@ export default function App() {
 
 	return (
 		<div className={`app ${theme}`}>
-			<button onClick={toggleTheme}>Сменить тему</button>
+			<button onClick={toggleTheme}>Поменять тему</button>
 			<Link to={'/'}>Главная</Link>
 			<Link to={'/about'}>О себе</Link>
 			<Suspense fallback={<div>Loading...</div>}>
