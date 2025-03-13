@@ -11,7 +11,7 @@ export default function classNames(
 		cls,
 		...additional,
 		Object.entries(mods)
-			.filter(([classNames, value]) => Boolean(value))
+			.filter(([classNames, value]) => Boolean(value)) 
 			.map(([className]) => className),
 	].join(' ');
 }
