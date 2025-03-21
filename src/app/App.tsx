@@ -4,17 +4,22 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from './router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 export default function App() {
 	const { theme } = useTheme();
 
 	return (
 		<div className={classNames('app', {}, [theme])}>
-			<Navbar />
-			<div className='content-page'>
-				<Sidebar />
-				<AppRouter />
-			</div>
+			<Suspense fallback=''>
+				<Navbar />
+				<div className='content-page'>
+					<Sidebar />
+					<AppRouter />
+				</div>
+			</Suspense>
 		</div>
 	);
 }

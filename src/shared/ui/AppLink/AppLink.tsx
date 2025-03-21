@@ -6,10 +6,12 @@ import { FC } from 'react';
 export enum AppLinkTheme {
 	PRIMARY = 'primary',
 	SECONDARY = 'secondary',
+	RED = 'red',
+
 }
 interface AppLinkProps extends LinkProps {
 	className?: string;
-	theme?: 'primary' | 'secondary';
+	theme?: AppLinkTheme;
 }
 
 export const AppLink: FC<AppLinkProps> = props => {

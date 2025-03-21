@@ -8,18 +8,14 @@ interface NavbarProps {
 export function Navbar({ className }: NavbarProps) {
 	return (
 		<div className={classNames(cls.Navbar, {}, [className])}>
-			<div className={classNames(cls.links)}>
-				<AppLink
-					theme={AppLinkTheme.PRIMARY}
-					className={classNames(cls.mainLink)}
-					to={'/'}
-				>
-					Главная
-				</AppLink>
-				<AppLink theme={AppLinkTheme.PRIMARY} to={'/about'}>
-					О себе
-				</AppLink>
-			</div>
-		</div>
+            <div className={cls.links}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={cls.mainLink}>
+                    Главная
+                </AppLink>
+                <AppLink theme={AppLinkTheme.RED} to={'/about'}>
+                    О сайте
+                </AppLink>
+            </div>
+        </div>
 	);
 }
