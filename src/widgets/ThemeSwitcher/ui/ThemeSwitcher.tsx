@@ -1,11 +1,11 @@
-import { classNames } from 'shared/config/lib/classnames/classNames';
+import { classNames } from 'shared/lib/classnames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import { Button, ThemeButton } from 'widgets/Button/Button';
 
 interface ThemeSwitcherProps {
-	className?: string;
+    className?: string;
 }
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
