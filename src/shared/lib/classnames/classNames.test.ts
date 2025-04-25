@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classnames/classNames';
 
-
 describe('classNames', () => {
     test('with only first param', () => {
         expect(classNames('someClass')).toBe('someClass');
