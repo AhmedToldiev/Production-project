@@ -12,15 +12,18 @@ export default ({ config }: {config: webpack.Configuration}) => {
     };
     config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push('.ts', '.tsx');
-    
-    if (!config.module) {
-        config.module = {};
+
+    const updatedConfig = { ...config };
+
+    if (!updatedConfig.module) {
+        updatedConfig.module = {};
     }
-    config.module.rules = config?.module?.rules?.map((rule) => {
+
+    updatedConfig.module.rules = config?.module?.rules?.map((rule) => {
         if (rule && typeof rule === 'object' && /svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
-    
+
         return rule;
     }).filter(Boolean) as RuleSetRule[];
 
