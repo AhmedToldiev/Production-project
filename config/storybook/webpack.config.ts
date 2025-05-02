@@ -19,7 +19,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         updatedConfig.module = {};
     }
 
-    updatedConfig.module.rules = config?.module?.rules?.map((rule) => {
+    updatedConfig.module.rules = config?.module?.rules?.map(rule => {
         if (rule && typeof rule === 'object' && /svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
