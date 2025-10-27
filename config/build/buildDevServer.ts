@@ -9,3 +9,9 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         hot: true,
     };
 }
+
+// Настраивает сервер для разработки:
+
+// на каком порту запускать
+// открывать ли браузер
+// поддержка SPA (чтобы работали маршруты вроде /profile)

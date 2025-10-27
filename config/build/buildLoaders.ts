@@ -42,3 +42,10 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
+
+// Говорит Webpack’у, как обрабатывать разные файлы:
+
+// .ts/.tsx → TypeScript
+// .css → стили
+// .svg → React-компоненты
+// картинки → копировать в сборку

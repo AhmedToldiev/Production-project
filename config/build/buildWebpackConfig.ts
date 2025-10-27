@@ -27,3 +27,5 @@ export function buildWebpackConfig(
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }
+
+// Зачем: Главный файл — собирает все части (лоадеры, плагины и т.д.) в один готовый конфиг Webpack.

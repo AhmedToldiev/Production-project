@@ -10,3 +10,5 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
         alias: {},
     };
 }
+
+// Настраивает, как Webpack ищет импорты — чтобы можно было писать import Button from 'components/Button', а не длинные пути.

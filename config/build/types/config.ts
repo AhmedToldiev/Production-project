@@ -16,3 +16,5 @@ export interface BuildOptions {
 	isDev: boolean;
 	port: number;
 }
+
+// Определяет типы и структуры данных (режим, пути, порт), чтобы всё было понятно и безопасно (TypeScript не даст ошибиться).
