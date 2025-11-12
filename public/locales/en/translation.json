@@ -12,9 +12,12 @@
     "Переключить": "Toggle",
     "Короткий язык": "EN",
     "Войти": "Enter",
+    "Выйти": "Exit",
     "Увеличить": "Increment",
     "Уменьшить": "Decrement",
     "Введите текст": "Enter text",
     "Введите логин": "Enter login",
-    "Введите пароль": "Enter password"
+    "Введите пароль": "Enter password",
+    "Форма авторизации": "Authorization form",
+    "Вы ввели неверный логин или пароль": "You entered an incorrect login or password"
 }

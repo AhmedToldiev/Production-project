@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { Suspense } from 'react';
 import { LoginForm } from './LoginForm';
 
 export default {
@@ -11,12 +11,19 @@ export default {
     },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = args => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = args => (
+    <Suspense fallback={<div>Loading...</div>}>
+        <LoginForm {...args} />
+    </Suspense>
+);
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [StoreDecorator({ loginForm: { username: 'Salman', password: '123' } })];
 
-export const Light = Template.bind({});
-Light.args = {};
+export const WithError = Template.bind({});
+WithError.args = {};
+WithError.decorators = [StoreDecorator({ loginForm: { username: 'Ahmad', password: '123', error: 'Error' } })];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [StoreDecorator({ loginForm: { isLoading: true } })];
