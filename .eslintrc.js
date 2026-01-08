@@ -52,6 +52,10 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'jsx-a11y/no-static-element-interactions': 'off',
         'no-param-reassign': 'off',
+        'quote-props': 'off',
+        'semi': ['error', 'always'],
+        'eol-last': 'off',
+
     },
     globals: {
         __IS_DEV__: true,
