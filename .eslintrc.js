@@ -55,7 +55,7 @@ module.exports = {
         'quote-props': 'off',
         'semi': ['error', 'always'],
         'eol-last': 'off',
-
+        'no-console': 'off',
     },
     globals: {
         __IS_DEV__: true,
