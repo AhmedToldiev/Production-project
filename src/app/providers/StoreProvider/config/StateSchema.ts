@@ -7,7 +7,10 @@ import { ReducerManager } from './reducerManager';
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+
+    // Асинхронные редьюсеры
     loginForm?: LoginSchema
+    profile?: UserSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
