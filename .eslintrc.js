@@ -56,6 +56,7 @@ module.exports = {
         'semi': ['error', 'always'],
         'eol-last': 'off',
         'no-console': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

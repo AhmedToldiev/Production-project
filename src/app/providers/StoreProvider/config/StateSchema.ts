@@ -4,6 +4,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ProfileSchema } from 'entities/Profile';
 import { ReducerManager } from './reducerManager';
 
 export interface StateSchema {
@@ -12,7 +13,7 @@ export interface StateSchema {
 
     // Асинхронные редьюсеры
     loginForm?: LoginSchema
-    profile?: UserSchema
+    profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -23,10 +24,10 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate: (to: To, options?: NavigateOptions) => void,
+    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
-export interface ThunkConfig<T> {
+export interface  ThunkConfig<T> {
     rejectValue: T,
     extra: ThunkExtraArg,
 }

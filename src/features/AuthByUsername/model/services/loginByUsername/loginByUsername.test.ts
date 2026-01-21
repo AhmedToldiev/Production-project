@@ -24,7 +24,7 @@ describe('loginByUsername.test', () => {
         const userValue = { username: '123', id: '1' };
         mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
         const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(dispatch, getState, undefined);
+        const result = await action(dispatch, getState, { api: mockedAxios, navigate: jest.fn() });
         console.log(result);
 
         expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
@@ -37,7 +37,7 @@ describe('loginByUsername.test', () => {
     test('403 error', async () => {
         mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(dispatch, getState, undefined);
+        const result = await action(dispatch, getState, { api: mockedAxios, navigate: jest.fn() });
 
         expect(mockedAxios.post).toHaveBeenCalled();
         expect(dispatch).toHaveBeenCalledTimes(2);
@@ -51,23 +51,23 @@ describe('loginByUsername.test', () => {
 describe('loginByUsername.test with TestAsyncThunk', () => {
     test('success login', async () => {
         const userValue = { username: '123', id: '1' };
-        mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
         const result = await thunk.callThunk({ username: '123', password: '123' });
 
         expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(userValue);
     });
 
     test('403 error', async () => {
-        mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk({ username: '123', password: '123' });
 
-        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(thunk.api.post).toHaveBeenCalled();
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toBe('error');
