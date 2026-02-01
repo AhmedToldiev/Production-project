@@ -1,5 +1,4 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
@@ -8,7 +7,6 @@ import { ProfileSchema } from 'entities/Profile';
 import { ReducerManager } from './reducerManager';
 
 export interface StateSchema {
-    counter: CounterSchema;
     user: UserSchema;
 
     // Асинхронные редьюсеры
@@ -27,7 +25,8 @@ export interface ThunkExtraArg {
     navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
-export interface  ThunkConfig<T> {
+export interface ThunkConfig<T> {
     rejectValue: T,
     extra: ThunkExtraArg,
+    state: StateSchema
 }
