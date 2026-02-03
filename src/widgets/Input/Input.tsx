@@ -1,4 +1,4 @@
-import { classNames, Mods } from 'shared/lib/classnames/classNames';
+import { classNames } from 'shared/lib/classnames/classNames';
 import {
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
@@ -53,10 +53,6 @@ export const Input = memo((props: InputProps) => {
 
     const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
-    };
-
-    const mods: Mods = {
-        [cls.readonly]: readonly,
     };
 
     return (
