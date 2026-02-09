@@ -1,4 +1,4 @@
-export { Profile, ProfileSchema } from './model/types/profile';
+export { Profile, ProfileSchema, ValidateProfileError } from './model/types/profile';
 
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 
@@ -9,5 +9,5 @@ export { updateProfileData } from './model/services/updateProfileData';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
 export {
-    getProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileForm,
+    getProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileForm, getProfileValidateErrors,
 } from './model/selectors/getProfileData';
