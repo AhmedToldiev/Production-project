@@ -2,9 +2,9 @@ export { Profile, ProfileSchema, ValidateProfileError } from './model/types/prof
 
 export { profileActions, profileReducer } from './model/slice/profileSlice';
 
-export { fetchProfileData } from './model/services/fetchProfileData';
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 
-export { updateProfileData } from './model/services/updateProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 

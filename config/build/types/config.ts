@@ -17,6 +17,7 @@ export interface BuildOptions {
 	isDev: boolean;
 	port: number;
 	apiUrl: string;
+	project: 'storybook' | 'frontend' | 'jest';
 }
 
 // Определяет типы и структуры данных (режим, пути, порт), чтобы всё было понятно и безопасно (TypeScript не даст ошибиться).
