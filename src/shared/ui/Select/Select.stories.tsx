@@ -10,7 +10,7 @@ export default {
     },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = () => <Select />;
+const Template: ComponentStory<typeof Select> = args => <Select {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
